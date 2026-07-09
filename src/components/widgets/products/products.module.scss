@@ -1,0 +1,12 @@
+.products{
+    padding-block: 40px;
+    h1{
+        color: white;
+        margin-bottom: 40px;
+    }
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        gap: 100px;
+    }
+}

@@ -1,0 +1,89 @@
+.container {
+  width: 1510px;
+  height: 650px;
+  background-image: url(https://w0.peakpx.com/wallpaper/439/177/HD-wallpaper-forest-from-above-green-mountain-mountains-drone.jpg);
+  //   img {
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    color: black;
+    .register {
+      h1 {
+        font-size: 30px;
+      }
+      width: 350px;
+      display: flex;
+      height: 380px;
+      padding: 40px;
+      border-radius: 30px;
+      flex-direction: column;
+      gap: 20px;
+      // align-items: center;
+      background: #8f8f8f9c;
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        input {
+            font-size: 16px;
+          padding: 10px 20px;
+          width: 250px;
+          border-radius: 15px;
+          background: #ffffffbc;
+        }
+        p {
+          position: absolute;
+          top: 330px;
+          right: 650px;
+        }
+        button {
+          margin-top: 30px;
+          padding: 10px 20px;
+          border-radius: 20px;
+          font-size: 19px;
+          color: white;
+          background: linear-gradient(
+            180deg,
+            #bc9450 0%,
+            #bc7450 50%,
+            #bc6450 100%
+          );
+        }
+      }
+    }
+    .login {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h3 {
+        color: #000;
+        text-align: center;
+      }
+      .sign {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        .s1 {
+          color: rgb(255, 216, 18);
+          font-size: 23px;
+        }
+        .s2 {
+          color: rgb(7, 2, 154);
+          font-size: 23px;
+        }
+        .s3 {
+          color: rgb(18, 164, 255);
+          font-size: 23px;
+        }
+      }
+    }
+  }
+}

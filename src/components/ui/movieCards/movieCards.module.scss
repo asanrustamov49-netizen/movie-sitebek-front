@@ -1,0 +1,22 @@
+.card{
+    background: #1c1c1c;
+        img{
+        width: 300px;
+        height: 350px;
+        object-fit: cover;
+    }
+    h2{
+        color: white;
+        font-size: 25px;
+    }
+    h4{
+        color: rgb(180, 180, 180);
+        font-size: 20px;
+        font-weight: 400;
+    }
+    button{
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+}
