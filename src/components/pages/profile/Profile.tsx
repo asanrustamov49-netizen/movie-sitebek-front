@@ -1,13 +1,23 @@
-import { useGetProfile } from "@/hooks/useProfile";
+"use client";
+import { useProfile } from "@/hooks/useProfile";
 import scss from "./profile.module.scss";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { TbLogout } from "react-icons/tb";
 
 const Profile = () => {
-  const { data: user } = useGetProfile();
-  console.log(user);
+  const { data: user, isLoading, error } = useProfile();
 
+  console.log("USER:", user);
+  console.log("ERROR:", error);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
   return (
     <div className={scss.container}>
       <div className="container">
@@ -17,10 +27,7 @@ const Profile = () => {
             <div className={scss.avatar}>
               <div className={scss.img}></div>
               <div className={scss.mainAvatar}>
-                <img
-                  src="https://i.pinimg.com/736x/97/8d/fe/978dfe2eed24660a344f07c8784065c8.jpg"
-                  alt=""
-                />
+                <img src={user?.avatar} alt="" />
                 <div className={scss.text}>
                   <h3>Your Photo</h3>
                   <p>Your photo will be displayed here</p>
@@ -33,21 +40,21 @@ const Profile = () => {
                 <h3>FirstName</h3>
                 <h4>
                   <FaRegUserCircle />
-                  Asan
+                  {user?.name}
                 </h4>
               </div>
               <div className={scss.lastName}>
                 <h3>LastName</h3>
                 <h4>
                   <FaRegUserCircle />
-                  Rustamov
+                  {user?.name}
                 </h4>
               </div>
               <div className={scss.email}>
                 <h3>Email address</h3>
                 <h4>
                   <MdOutlineMailOutline />
-                  asanrustamov49@gmail.com
+                  {user?.email}
                 </h4>
               </div>
               <div className={scss.logout}>
@@ -59,7 +66,7 @@ const Profile = () => {
                     this one
                   </h5>
                 </div>
-                <button>
+                <button onClick={() => logout()}>
                   <TbLogout />
                   Log out
                 </button>

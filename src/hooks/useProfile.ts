@@ -1,25 +1,25 @@
+"use client"
 import { useQuery } from "@tanstack/react-query";
 import { Api } from "./api/Api";
 
-interface IGetResponse {
-  message: string;
-  data: IData;
-}
-
-interface IData {
+interface IUser {
   id: number;
-  password: string;
-  name: string;
   email: string;
+  name: string;
   avatar: string;
   registered_at: string;
 }
 
-export const useGetProfile = () =>
+interface IProfileResponse {
+  message: string;
+  data: IUser;
+}
+
+export const useProfile = () =>
   useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
-      const response = await Api.get<IGetResponse>("/movies/profile");
-      return response.data.data;
+      const res = await Api.get<IProfileResponse>("/movies/profile");
+      return res.data.data;
     },
   });

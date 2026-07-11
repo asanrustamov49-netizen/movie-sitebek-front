@@ -16,6 +16,6 @@ export const useRegister = () =>
     onSuccess: (res) => {
       console.log(res);
 
-      //   window.location.href = "/login";
+      window.location.href = "/login";
     },
   });
