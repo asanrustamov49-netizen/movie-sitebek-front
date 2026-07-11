@@ -15,8 +15,8 @@ interface IForm {
 
 const Edit = () => {
   const { mutate: updateMovie } = useUpdate();
-  const { id } = useParams();
-  const { data: movie } = useGetOne(+id);
+  const params = useParams<{ id: string }>();
+  const { data: movie } = useGetOne(Number(params.id));
   const { handleSubmit, reset, register } = useForm<IForm>();
   useEffect(() => {
     if (movie) {
@@ -29,7 +29,10 @@ const Edit = () => {
     }
   }, [movie, reset]);
   const handleData = (data: IForm) => {
-    updateMovie({ id: id, body: data });
+    updateMovie({
+      id: Number(params.id),
+      body: data,
+    });
     reset();
   };
   return (
